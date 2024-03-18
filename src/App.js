@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, {useMemo, useRef, useState} from 'react';
+import JoditEditor from 'jodit-react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = ({placeholder}) => {
+    const editor = useRef(null);
+    const [content, setContent] = useState('');
+
+    const config = useMemo(
+        () => ({
+            readonly: false, // all options from https://xdsoft.net/jodit/docs/,
+            placeholder: placeholder || 'Start typing...',
+            height: '100vh',
+            theme:'dark',
+            toolbarButtonSize: 'large'
+        }),
+        [placeholder]
+    );
+
+    const handleContentChange = (newContent) => {
+        setContent(newContent);
+        // Any additional actions you want to perform when content changes
+    };
+
+    return (
+        <JoditEditor
+            ref={editor}
+            value={content}
+            config={config}
+            tabIndex={1} // tabIndex of textarea
+            onBlur={(newContent) => handleContentChange(newContent)} // Update content on blur
+            onChange={(newContent) => handleContentChange(newContent)} // Uncomment this line for real-time updates
+        />
+    );
+};
 
 export default App;
+
