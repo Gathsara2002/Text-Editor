@@ -1,6 +1,5 @@
 import React, {useMemo, useRef, useState} from 'react';
 import JoditEditor from 'jodit-react';
-import './App.css';
 
 const App = ({placeholder}) => {
     const editor = useRef(null);

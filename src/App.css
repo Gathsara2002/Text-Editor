@@ -1,8 +1,0 @@
-/* Apply background color to Jodit toolbar when not empty */
-/*.jodit-toolbar__box:not(:empty):not(:empty) {*/
-/*    background-color: #1D1D1D;*/
-/*}*/
-
-/*.jodit .jodit-workplace .jodit-wysiwyg, .jodit .jodit-workplace .jodit-wysiwyg_iframe, .jodit-container .jodit-workplace .jodit-wysiwyg, .jodit-container .jodit-workplace .jodit-wysiwyg_iframe {*/
-/*    background-color: #000000;*/
-/*}*/
